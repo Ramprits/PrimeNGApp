@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StatisticComponent } from './statistic/statistic.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeComponent } from './Component/employee/employee.component';
+import { ServicesModule } from './services/services.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { EmployeeComponent } from './Component/employee/employee.component';
     ConfirmDialogModule,
     GrowlModule,
     DragDropModule,
-    GalleriaModule
+    GalleriaModule,
+    ServicesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,47 @@
+export interface IEmployees {
+    employeeId: number;
+    lastName: string;
+    firstName: string;
+    title: string;
+    titleOfCourtesy: string;
+    birthDate?: Date;
+    hireDate?: Date;
+    address: string;
+    city: string;
+    region: string;
+    postalCode: string;
+    country: string;
+    homePhone: string;
+    extension: string;
+    photo: any[];
+    notes: string;
+    reportsTo?: number;
+    photoPath: string;
+    employeeTerritories: any[];
+    orders: any[];
+    reportsToNavigation: {
+        employeeId: number;
+        lastName: string;
+        firstName: string;
+        title: string;
+        titleOfCourtesy: string;
+        birthDate?: Date;
+        hireDate?: Date;
+        address: string;
+        city: string;
+        region: string;
+        postalCode: string;
+        country: string;
+        homePhone: string;
+        extension: string;
+        photo: any[];
+        notes: string;
+        reportsTo?: number;
+        photoPath: string;
+        employeeTerritories: any[];
+        orders: any[];
+        reportsToNavigation: any;
+        inverseReportsToNavigation: any[];
+    };
+    inverseReportsToNavigation: any[];
+}
