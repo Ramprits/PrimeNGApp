@@ -1,3 +1,7 @@
 <p-panel header="Employee">
   <h3>Welcome to the Employee List</h3>
+  <hr>
+  <ng-template ngFor let-employee [ngForOf]="employees" let-i="index">
+    <li>{{employee.lastName}} - {{employee.firstName}}</li>
+  </ng-template>
 </p-panel>

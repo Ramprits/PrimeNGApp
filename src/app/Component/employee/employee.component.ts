@@ -9,7 +9,7 @@ import { IEmployees } from '../../Model/IEmployee';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  employees: IEmployees[];
+  employees: any[];
 
   constructor(private dataService: DataService, private title: Title) { }
 

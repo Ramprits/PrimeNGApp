@@ -7,17 +7,17 @@ import 'rxjs/add/operator/catch';
 import { ConfigService } from './config.service';
 import { IEmployees } from '../Model/IEmployee';
 import { LoggerService } from './Logger.Service';
-
+import { ResponseType } from '@angular/http';
 
 @Injectable()
 export class DataService {
   baseUrl: string;
-  constructor(private loggerService: LoggerService,private configService: ConfigService, private httpClient: HttpClient) {
+  constructor(private loggerService: LoggerService, private configService: ConfigService, private httpClient: HttpClient) {
     this.baseUrl = configService.getApiURI();
   }
-  getEmployees(): Observable<IEmployees[]> {
-    return this.httpClient.get<IEmployees[]>(this.baseUrl)
-      .map((employees: IEmployees[]) => {
+  getEmployees(): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.baseUrl + '/Employees')
+      .map((employees: any[]) => {
         return employees;
       })
       .catch(this.handleError);
