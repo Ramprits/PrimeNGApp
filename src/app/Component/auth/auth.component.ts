@@ -6,7 +6,8 @@ import { MessageService } from 'primeng/components/common/messageservice';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  styleUrls: ['./auth.component.css'],
+  providers: [MessageService]
 })
 export class AuthComponent implements OnInit {
   msgs: Message[] = [];

@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { MenuItem } from 'primeng/primeng';
+import { MenuItem, Message } from 'primeng/primeng';
 import { Menu } from 'primeng/components/menu/menu';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from './services/auth/auth.service';
+import { MessageService } from 'primeng/components/common/messageservice';
 declare var jQuery: any;
 @Component({
   selector: 'yo-root',
@@ -12,14 +14,27 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'yo';
   menuItems: MenuItem[];
   miniMenuItems: MenuItem[];
-
+  msgs: Message[] = [];
+  email: string;
+  password: string;
+  constructor(public authService: AuthService, private messageService: MessageService) { }
+  signup() {
+    this.authService.signup(this.email, this.password);
+    this.email = this.password = '';
+  }
+  login() {
+    this.authService.login(this.email, this.password);
+    this.email = this.password = '';
+  }
+  logout() {
+    this.authService.logout();
+  }
   @ViewChild('bigMenu') bigMenu: Menu;
   @ViewChild('smallMenu') smallMenu: Menu;
   ngOnInit() {
     const handleSelected = function (event) {
       const allMenus = jQuery(event.originalEvent.target).closest('ul');
       const allLinks = allMenus.find('.menu-selected');
-
       allLinks.removeClass('menu-selected');
       const selected = jQuery(event.originalEvent.target).closest('a');
       selected.addClass('menu-selected');

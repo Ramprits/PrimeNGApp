@@ -1,7 +1,14 @@
 <div class="ui-g ui-g-nopad" id="header">
-    <div class="ui-g-10">
+    <div class="ui-g-5">
         <!-- <img src="assets/img/logo-clear.svg" id="top-logo" /> -->
         Dhanai Fruits Mart
+    </div>
+    <div class="ui-g-5">
+        <div class="pull-right">
+            <span *ngIf="authService.user | async">{{ (authService.user | async)?.email }}!</span>
+            <button pButton (click)="logout()" label="Logout" *ngIf="authService.user | async">
+            </button>
+        </div>
     </div>
     <div class="ui-g-2" id="notifications">
 
@@ -28,11 +35,21 @@
         <i class="content icon"></i>
         <span class="text">Menu</span>
     </div>
-
-
-
     <div id="content-body" class="ui-g-9 ui-g-nopad">
+        <p-panel header="Login" *ngIf="!(authService.user | async)">
+            <p-growl [(value)]="msgs"></p-growl>
+            <div>
+                <input type="text" pInputText [(ngModel)]="email" placeholder="Email !">
+                <br>
+                <br>
+                <input type="password" pInputText [(ngModel)]="password" placeholder="Password !">
+                <br>
+                <br>
+                <button (click)="signup()" pButton [disabled]="!email || !password" label="Signup"> </button>
+                <button (click)="login()" pButton [disabled]="!email || !password" label="Login"> </button>
+            </div>
 
+        </p-panel>
         <router-outlet></router-outlet>
 
     </div>

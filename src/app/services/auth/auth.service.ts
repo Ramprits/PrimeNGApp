@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
+import { MessageService } from 'primeng/components/common/messageservice';
+import { Message } from 'primeng/primeng';
 
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
-
-  constructor(private firebaseAuth: AngularFireAuth) {
+  msgs: Message[] = [];
+  constructor(private firebaseAuth: AngularFireAuth, private messageService: MessageService) {
     this.user = firebaseAuth.authState;
   }
 
@@ -19,6 +21,8 @@ export class AuthService {
         console.log('Success!', value);
       })
       .catch(err => {
+        this.msgs = [];
+        this.msgs.push({ severity: 'error', summary: 'Error Message', detail: err.message });
         console.log('Something went wrong:', err.message);
       });
   }
@@ -31,6 +35,9 @@ export class AuthService {
         console.log('Nice, it worked!');
       })
       .catch(err => {
+
+        this.msgs = [];
+        this.msgs.push({ severity: 'error', summary: 'Error Message', detail: err.message });
         console.log('Something went wrong:', err.message);
       });
   }

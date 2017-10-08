@@ -6,7 +6,7 @@ import { CustomerComponent } from './Component/customer/customer.component';
 import { AuthComponent } from './Component/auth/auth.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'employees', component: EmployeeComponent },
   { path: 'customers', component: CustomerComponent },
