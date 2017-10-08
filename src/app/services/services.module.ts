@@ -9,13 +9,14 @@ import { AuthService } from './auth/auth.service';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @NgModule({
   imports: [CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule],
   declarations: [],
-  providers: [DataService, LoggerService, ConfigService, CustomerService, AuthService]
+  providers: [DataService, LoggerService, ConfigService, CustomerService, AuthService, MessageService]
 })
 export class ServicesModule {
   constructor( @Optional() @SkipSelf() parentModule: ServicesModule) {

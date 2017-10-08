@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { Message } from 'primeng/primeng';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @Component({
   selector: 'app-auth',
@@ -7,13 +9,14 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
+  msgs: Message[] = [];
   ngOnInit(): void {
   }
 
   email: string;
   password: string;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private messageService: MessageService) { }
 
   signup() {
     this.authService.signup(this.email, this.password);

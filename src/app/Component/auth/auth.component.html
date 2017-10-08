@@ -1,20 +1,17 @@
 <p-panel header="Login">
   <h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</h1>
-
   <div *ngIf="!(authService.user | async)">
-    <input type="text" [(ngModel)]="email" placeholder="email">
-    <input type="password" [(ngModel)]="password" placeholder="email">
-
-    <button (click)="signup()" [disabled]="!email || !password">
-      Signup
-    </button>
-
-    <button (click)="login()" [disabled]="!email || !password">
-      Login
-    </button>
+    <input type="text" pInputText [(ngModel)]="email" placeholder="Email !">
+    <br>
+    <br>
+    <input type="password" pInputText [(ngModel)]="password" placeholder="Password !">
+    <br>
+    <br>
+    <button (click)="signup()" [disabled]="!email || !password"> Signup </button>
+    <button (click)="login()" [disabled]="!email || !password"> Login </button>
   </div>
 
   <button (click)="logout()" *ngIf="authService.user | async">
     Logout
   </button>
-  </p>
+</p-panel>
