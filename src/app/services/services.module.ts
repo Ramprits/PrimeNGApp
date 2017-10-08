@@ -6,9 +6,7 @@ import { ConfigService } from './config.service';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [],
   providers: [DataService, LoggerService, ConfigService]
 })

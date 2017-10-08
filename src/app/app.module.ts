@@ -12,6 +12,10 @@ import { StatisticComponent } from './statistic/statistic.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeComponent } from './Component/employee/employee.component';
 import { ServicesModule } from './services/services.module';
+import { environment } from '../environments/environment.prod';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +24,8 @@ import { ServicesModule } from './services/services.module';
     EmployeeComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
