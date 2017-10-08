@@ -27,8 +27,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.menuItems = [
       { label: 'Dashboard', icon: 'fa-home', routerLink: ['/dashboard'], command: (event) => handleSelected(event) },
       { label: 'All Times', icon: 'fa-calendar', routerLink: ['/alltimes'], command: (event) => handleSelected(event) },
-      { label: 'Customer', icon: 'fa-clock-o', routerLink: ['/customers'], command: (event) => handleSelected(event) },
-      { label: 'Add Project', icon: 'fa-tasks', routerLink: ['/projects'], command: (event) => handleSelected(event) },
+      { label: 'Customer', icon: 'fa-tasks', routerLink: ['/customers'], command: (event) => handleSelected(event) },
       { label: 'My Profile', icon: 'fa-users', routerLink: ['/profile'], command: (event) => handleSelected(event) },
       { label: 'Employee', icon: 'fa-sliders', routerLink: ['/employees'], command: (event) => handleSelected(event) },
     ];

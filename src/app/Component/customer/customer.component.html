@@ -1,0 +1,7 @@
+<p-panel header="Customer List">
+  <h3>Welcome to the customer List</h3>
+  <hr>
+  <div *ngFor="let customer of customers$ | async">
+    {{customer.companyName}}
+  </div>
+</p-panel>

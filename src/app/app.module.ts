@@ -15,13 +15,17 @@ import { ServicesModule } from './services/services.module';
 import { environment } from '../environments/environment.prod';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { CustomerComponent } from './Component/customer/customer.component';
+import { AuthComponent } from './Component/auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StatisticComponent,
     DashboardComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    CustomerComponent,
+    AuthComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
