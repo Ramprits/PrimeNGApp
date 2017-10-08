@@ -17,17 +17,21 @@ export class AppComponent implements OnInit, AfterViewInit {
   msgs: Message[] = [];
   email: string;
   password: string;
-  constructor(public authService: AuthService, private messageService: MessageService) { }
+  constructor(public authService: AuthService, private router: Router, private messageService: MessageService) { }
   signup() {
     this.authService.signup(this.email, this.password);
     this.email = this.password = '';
+    this.router.navigate(['/dashboard']);
+
   }
   login() {
     this.authService.login(this.email, this.password);
     this.email = this.password = '';
+    this.router.navigate(['/dashboard']);
   }
   logout() {
     this.authService.logout();
+    this.router.navigate(['/']);
   }
   @ViewChild('bigMenu') bigMenu: Menu;
   @ViewChild('smallMenu') smallMenu: Menu;
